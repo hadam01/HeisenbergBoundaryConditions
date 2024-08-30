@@ -1,0 +1,77 @@
+
+
+Name: Husam Adam
+Internship Time Frame: Summer 2024
+Project: Boundary Conditions for the Heisenberg Antiferromagnet
+Lab: Kaxiras Group
+
+
+Heisenberg Introduction and Boundary Condiitons:
+The Heisenberg Hamiltonian is given by the spin dot products of all neighboring sites in our square or rectangular (or chain)
+lattice. In order to approximate an infinite-size system with a finite set of spins, we have to consider how to deal
+with the spins at the edge of our square or rectangle. In a simple 1D chain, these methods are represented by the following 
+boundary conditions:
+
+Periodic - Once we reach the spin at the end of the chain we loop to the first spin.
+Antiperiodic - Once we reach the spin at the end of the chain we loop to the opposite of the first spin.
+Open - Once we reach the spin at the end of the chain, we don't consider another interaction.
+Random - Once we reach the spin at the end of the chain, we consider an interaction with a random spin.
+Twisted - Once we reach the spin at the end of the chain, we consider the spin at the start with a factor of
+sines and cosines for the x and y components of the dot products added.
+
+
+Installation and Setup:
+- Louis' lattice 2D class
+- NetKet
+- The files listed below in the "Files" section
+- Numpy and Matplotlib
+
+
+Project Purpose:
+This project is meant to explore different boundary conditions on the Heisenberg Antiferromagnet. We consider
+periodic, antiperiodic, random, open, and twisted boundary conditions for square and rectangular lattices.
+
+
+Files:
+main.py - This file is mainly used for plot generation and can run any pair of desired boundary conditions.
+This is where you should deal with plots, spin-spin correlations, dot products, and any other comparisons.
+** Notable functions include: plot_eigenvalues, run_diff_lattices, run_diff_thetas, run_rectangular_twist, and plot_correlations.
+
+AllBC.py - This file allows you to mix any set of boundary conditions (or run a normal set of boundary conditions).
+This file does the Hamiltonian construction and finds the eigenvalues and eigenvectors for you.
+** Notable functions include: {Boundary Condition}_entry, make_hamiltonian, and run.
+
+PeriodicBC.py - This file is a plain periodic boundary condition code. This is primarily used for checks 
+against other functions.
+** Notable functions include: make_hamiltonian and run.
+
+NetKetPBC.py - This file has NetKets implementation of periodic boundary conditions for square and rectangular lattices.
+This is usually just used as a check against PeriodicBC and AllBC.
+** Notable functions include: run_square and run_rectangle.
+
+Hamiltonian_Utils.py - This file offers the tools you need to deal with Hamiltonian matrix construction and finding the
+eigenvalues and eigenvectors of a Hamiltonian. It also offers checks to your Hamiltonian to make sure that it conceptually 
+makes sense and can stores the eigenvalues and eigenvectors in a separate file.
+** Notable functions include: check_hamiltonian, find_eigen, and print_ground_state.
+
+Lattice_Utils.py - This file offers utility functions for constructing a lattice for a 2D spin model, handling neighbors, 
+generating basis states, analyzing lattices, and functions needed for special boundary conditions. There are also checks 
+that each of the listed processes went smoothly.
+** Notable functions include: make_lattice, generate_basis_states, store_all_neighbors_with_type, populate_dictionary, check_rows,
+and check_columns.
+
+
+Miscellanious Tips:
+Should you encounter a bug (which you hopefully won't), be sure to check this list of finnicky concepts/code:
+- Neighbor storage and its manipulation
+- Random Boundary Conditions (I use 1/2 and -1/2 to represent a random spin - try not to use this
+to access a neighbors index)
+- 2xN case - I handled this very differently from NetKet in that the same interaction is considered twice
+in the "2" direction: once periodically and once directly.
+- Twisted Boundary Conditions - Always reference this definition and make sure it matches the code.
+- AllBC.py - If you aren't using twisted boundary conditions, make sure to set both theta and theta2 equal
+to None. If you are, make sure you're using the right theta argument (theta for rows and theta2 for columns).
+
+
+Acknowledgements: Special thanks to the Kaxiras Group, especially Daniel Larson and Efthimios Kaxiras, for their guidance 
+and support throughout this project.
