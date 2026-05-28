@@ -6,7 +6,7 @@ Project: Boundary Conditions for the Heisenberg Antiferromagnet
 Lab: Kaxiras Group
 
 
-Heisenberg Introduction and Boundary Condiitons:
+Heisenberg Introduction and Boundary Conditons:
 The Heisenberg Hamiltonian is given by the spin dot products of all neighboring sites in our square or rectangular (or chain)
 lattice. In order to approximate an infinite-size system with a finite set of spins, we have to consider how to deal
 with the spins at the edge of our square or rectangle. In a simple 1D chain, these methods are represented by the following 
